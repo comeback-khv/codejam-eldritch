@@ -35,9 +35,27 @@
                         <li class="nav__item">
                             <a class="nav__link" href="#stories">Travel Stories</a>
                         </li>
+                        <li class="nav__item nav__item--mobile">
+                            <a class="nav__link" href="#account">Account</a>
+                        </li>
+                        <li class="nav__item nav__item--mobile">
+                            <a class="nav__link" href="#social">Social Media</a>
+                        </li>
                     </ul>
                 </nav>
-                <form class="button-form" action="#">
+                <div class="burger">
+                    <div class="burger-menu">
+                        <span class="burger-menu__line"></span>
+                        <span class="burger-menu__line"></span>
+                        <span class="burger-menu__line"></span>
+                    </div>
+                    <div class="burger-close">
+                        <span class="burger-close__line"></span>
+                        <span class="burger-close__line"></span>
+                    </div>
+                </div>
+
+                <form class="button-form header__button-form" action="#">
                     <button class="button header__button">Login</button>
                 </form>
             </div>
@@ -46,16 +64,14 @@
             <section class="preview" id="preview">
                 <div class="content-container">
                     <h1 class="preview__title">Explore the beauty of<br>the World</h1>
-                    <p class="preview__text">Recieve personalized recommendations for countries, hotels, activities
+                    <p class="preview__text">Receive personalized recommendations for countries, hotels, activities
                         and
                         more
                     </p>
-                    <div class="preview__search">
+                    <form class="button-form preview__search-form" action="#">
                         <input class="preview__input" type="text" placeholder="What would you like to do?">
-                        <form class="button-form" action="#">
-                            <button class="button preview__button">Start Planning</button>
-                        </form>
-                    </div>
+                        <button class="button preview__button">Start Planning</button>
+                    </form>
                 </div>
             </section>
             <section class="steps" id="steps">
@@ -63,25 +79,32 @@
                     <h2 class="title steps__title">3 steps to the perfect trip</h2>
                     <ul class="steps__list">
                         <li class="steps__item">
-                            <div class="img-wrapper">
-                                <img class="steps__img" src="assets/svg/steps-bicycle.svg" alt="Bicycle" width="50"
-                                    height="45">
+                            <div class="steps__wrapper steps__wrapper--left">
+                                <div class="img-wrapper">
+                                    <img class="steps__img steps__img--bicycle" src="assets/svg/steps-bicycle.svg"
+                                        alt="Bicycle" width="50" height="45">
+                                </div>
+                                <p class="steps__text
+                                steps__text--left">Tell us what you want to do</p>
                             </div>
-                            <p class="steps__text">Tell us what you want to do</p>
                         </li>
                         <li class="steps__item">
-                            <div class="img-wrapper">
-                                <img class="steps__img" src="assets/svg/steps-calendar.svg" alt="Calendar" width="52"
-                                    height="52">
+                            <div class="steps__wrapper steps__wrapper--center">
+                                <div class="img-wrapper">
+                                    <img class="steps__img steps__img--calendar" src="assets/svg/steps-calendar.svg"
+                                        alt="Calendar" width="52" height="52">
+                                </div>
+                                <p class="steps__text steps__text--center">Share us preferable dates</p>
                             </div>
-                            <p class="steps__text">Share us preferable dates</p>
                         </li>
                         <li class="steps__item">
-                            <div class="img-wrapper">
-                                <img class="steps__img" src="assets/svg/steps-airplane.svg" alt="Airplane" width="60"
-                                    height="45">
+                            <div class="steps__wrapper steps__wrapper--right">
+                                <div class="img-wrapper">
+                                    <img class="steps__img steps__img--airplane" src="assets/svg/steps-airplane.svg"
+                                        alt="Airplane" width="60" height="45">
+                                </div>
+                                <p class="steps__text steps__text--right">We will give you recommendations</p>
                             </div>
-                            <p class="steps__text">We will give you recommendations</p>
                         </li>
                     </ul>
                 </div>
@@ -92,26 +115,36 @@
                     <li class="destinations__item">
                         <img class="destinations__img" src="assets/img/destinations-spain.jpg" alt="Spain" width="800"
                             height="800">
+                        <img class="destinations__img--mobile" src="assets/img/destinations-spain-mobile.jpg"
+                            alt="Spain" width="360" height="210">
                         <p class="destinations__text">Spain</p>
                     </li>
                     <li class="destinations__item">
                         <img class="destinations__img" src="assets/img/destinations-japan.jpg" alt="Japan" width="800"
                             height="800">
+                        <img class="destinations__img--mobile" src="assets/img/destinations-japan-mobile.jpg"
+                            alt="Japan" width="360" height="210">
                         <p class="destinations__text">Japan</p>
                     </li>
                     <li class="destinations__item">
                         <img class="destinations__img" src="assets/img/destinations-usa.jpg" alt="USA" width="800"
                             height="800">
+                        <img class="destinations__img--mobile" src="assets/img/destinations-usa-mobile.jpg" alt="USA"
+                            width="360" height="210">
                         <p class="destinations__text">USA</p>
                     </li>
                 </ul>
                 <ul class="pagination__list">
-                    <li class="pagination__item">Spain</li>
-                    <li class="pagination__item pagination__item--active">Japan</li>
+                    <li class="pagination__item pagination__item--active">Spain</li>
+                    <li class="pagination__item">Japan</li>
                     <li class="pagination__item">USA</li>
                 </ul>
+                <div class="slider-arrows">
+                    <span class="slider-arrows-left"></span>
+                    <span class="slider-arrows-right"></span>
+                </div>
                 <form class="button-form destinations__button-form" action="#">
-                    <button class="button button--long">Find more</button>
+                    <button class="button button--long">Find More</button>
                 </form>
             </section>
             <section class="stories" id="stories">
@@ -134,11 +167,19 @@
                                     est
                                     laborum.Lorem ipsum dolor sit
                                     amet, consectetur adipiscing elit...</p>
+                                <p class="stories__text--mobile">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                    aliquip ex ea commodo consequat. Duis
+                                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                    nulla.Lorem ipsum dolor sit a...</p>
                                 <a class="stories__link" href="#">Read More</a>
                             </div>
                             <div class="left-column">
                                 <img class="stories__img" src="assets/img/stories-river.jpg" alt="River" width="400"
                                     height="250">
+                                <img class="stories__img--mobile" src="assets/img/stories-river-mobile.jpg" alt="River"
+                                    width="155" height="130">
                             </div>
                         </li>
                         <li class="stories__item">
@@ -157,11 +198,22 @@
                                     est
                                     laborum.Lorem ipsum dolor sit
                                     amet, consectetur adipiscing elit...</p>
+                                <p class="stories__text--mobile">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                    aliquip ex ea commodo consequat.
+                                    Duis
+                                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                    nulla.Lorem ipsum dolor sit a...
+                                </p>
                                 <a class="stories__link" href="#">Read More</a>
                             </div>
                             <div class="left-column">
                                 <img class="stories__img" src="assets/img/stories-long-road.jpg" alt="Long road"
                                     width="400" height="250">
+                                <img class="stories__img--mobile" src="assets/img/stories-long-road-mobile.jpg"
+                                    alt="Long road" width="155" height="130">
                             </div>
                         </li>
                         <li class="stories__item">
@@ -180,11 +232,22 @@
                                     est
                                     laborum.Lorem ipsum dolor sit
                                     amet, consectetur adipiscing elit...</p>
+                                <p class="stories__text--mobile">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                    aliquip ex ea commodo consequat.
+                                    Duis
+                                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                    nulla.Lorem ipsum dolor sit a...
+                                </p>
                                 <a class="stories__link" href="#">Read More</a>
                             </div>
                             <div class="left-column">
                                 <img class="stories__img" src="assets/img/stories-mountains.jpg" alt="Mountains"
                                     width="400" height="250">
+                                <img class="stories__img--mobile" src="assets/img/stories-mountains-mobile.jpg"
+                                    alt="Mountains" width="155" height="130">
                             </div>
                         </li>
                         <li class="stories__item">
@@ -203,11 +266,22 @@
                                     est
                                     laborum.Lorem ipsum dolor sit
                                     amet, consectetur adipiscing elit...</p>
+                                <p class="stories__text--mobile">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                    aliquip ex ea commodo consequat.
+                                    Duis
+                                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                    nulla.Lorem ipsum dolor sit a...
+                                </p>
                                 <a class="stories__link" href="#">Read More</a>
                             </div>
                             <div class="left-column">
                                 <img class="stories__img" src="assets/img/stories-canyon.jpg" alt="Canyon" width="400"
                                     height="250">
+                                <img class="stories__img--mobile" src="assets/img/stories-canyon-mobile.jpg"
+                                    alt="Canyon" width="155" height="130">
                             </div>
                         </li>
                     </ul>
@@ -219,30 +293,33 @@
         </main>
         <footer class="footer">
             <div class="content-container footer__container">
-                <p class="footer__copyright">All Rights Reserved &copy; Travel Portal</p>
-                <ul class="social-list">
-                    <li class="social-list__item">
-                        <a class="social-list__link" href="https://github.com/comeback-khv">
-                            <img class="social-list__img" src="assets/svg/social-instagram.svg" alt="Instagram"
-                                width="34" height="34">
-                        </a>
-                    </li>
-                    <li class="social-list__item">
-                        <a class="social-list__link" href="https://github.com/comeback-khv">
-                            <img class="social-list__img" src="assets/svg/social-youtube.svg" alt="Youtube" width="34"
-                                height="34">
-                        </a>
-                    </li>
-                    <li class="social-list__item">
-                        <a class="social-list__link" href="https://github.com/comeback-khv">
-                            <img class="social-list__img" src="assets/svg/social-twitter.svg" alt="Twitter" width="34"
-                                height="34">
-                        </a>
-                    </li>
-                </ul>
+                <div class="footer__wrapper">
+                    <p class="footer__copyright">All Rights Reserved &copy; Travel Portal</p>
+                    <ul class="social-list " id="social">
+                        <li class="social-list__item">
+                            <a class="social-list__link" href="https://github.com/comeback-khv">
+                                <img class="social-list__img" src="assets/svg/social-instagram.svg" alt="Instagram"
+                                    width="34" height="34">
+                            </a>
+                        </li>
+                        <li class="social-list__item">
+                            <a class="social-list__link" href="https://github.com/comeback-khv">
+                                <img class="social-list__img" src="assets/svg/social-youtube.svg" alt="Youtube"
+                                    width="34" height="34">
+                            </a>
+                        </li>
+                        <li class="social-list__item">
+                            <a class="social-list__link" href="https://github.com/comeback-khv">
+                                <img class="social-list__img" src="assets/svg/social-twitter.svg" alt="Twitter"
+                                    width="34" height="34">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </footer>
     </div>
 </body>
+<script src="index.js"></script>
 
 </html>
