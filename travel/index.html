@@ -36,7 +36,7 @@
                             <a class="nav__link" href="#stories">Travel Stories</a>
                         </li>
                         <li class="nav__item nav__item--mobile">
-                            <a class="nav__link" href="#account">Account</a>
+                            <a class="nav__link nav__link--account" href="#account">Account</a>
                         </li>
                         <li class="nav__item nav__item--mobile">
                             <a class="nav__link" href="#social">Social Media</a>
@@ -54,10 +54,48 @@
                         <span class="burger-close__line"></span>
                     </div>
                 </div>
-
-                <form class="button-form header__button-form" action="#">
-                    <button class="button header__button">Login</button>
-                </form>
+                <button class="button header__button">Login</button>
+            </div>
+            <div class="pop-up">
+                <div class="pop-up__container">
+                    <div class="pop-up__body">
+                        <div class="pop-up__content-container">
+                            <h3 class="pop-up__title"> Log in to your account </h3>
+                            <form class="pop-up-form" method="post" action="javascript:;">
+                                <ul class="pop-up-form__social-list">
+                                    <li class="pop-up-form__social-item">
+                                        <button
+                                            class="pop-up-form__social-button pop-up-form__social-button--facebook">Sign
+                                            In with Facebook</button>
+                                    </li>
+                                    <li class="pop-up-form__social-item">
+                                        <button
+                                            class="pop-up-form__social-button pop-up-form__social-button--google">Sign
+                                            In with Google</button>
+                                    </li>
+                                </ul>
+                                <p class="pop-up-form__text">or</p>
+                                <div class="pop-up-form-mail">
+                                    <label class="pop-up-form-mail__text" for="username">E-mail</label>
+                                    <input class="pop-up-form-mail__input" type="text" id="username" name="username"
+                                        value="">
+                                </div>
+                                <div class="pop-up-form-password">
+                                    <label class="pop-up-form-password__text" for="userpass">Password</label>
+                                    <input class="pop-up-form-password__input" type="password" id="userpass"
+                                        name="userpass" value="">
+                                </div>
+                                <button class="pop-up-form-sign-in" type="submit">Sign In</button>
+                                <a class="pop-up-form-forgot-link" href="#">Forgot Your Password?</a>
+                                <div class="pop-up-form-register">
+                                    <p class="pop-up-form-register__text">Don’t have an account?</p>
+                                    <a class="pop-up-form-register__link" href="#">Register</a>
+                                </div>
+                            </form>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
         <main class="main">
@@ -113,14 +151,18 @@
                 <h2 class="title destinations__title">Popular destinations</h2>
                 <ul class="destinations__list">
                     <li class="destinations__item">
+                        <img class="destinations__img" src="assets/img/destinations-usa.jpg" alt="USA" width="800"
+                            height="800">
+                        <p class="destinations__text">USA</p>
+                    <li class="destinations__item">
                         <img class="destinations__img" src="assets/img/destinations-spain.jpg" alt="Spain" width="800"
                             height="800">
                         <img class="destinations__img--mobile" src="assets/img/destinations-spain-mobile.jpg"
                             alt="Spain" width="360" height="210">
                         <p class="destinations__text">Spain</p>
                     </li>
-                    <li class="destinations__item">
-                        <img class="destinations__img" src="assets/img/destinations-japan.jpg" alt="Japan" width="800"
+                    <li class="destinations__item ">
+                        <img class=" destinations__img" src="assets/img/destinations-japan.jpg" alt="Japan" width="800"
                             height="800">
                         <img class="destinations__img--mobile" src="assets/img/destinations-japan-mobile.jpg"
                             alt="Japan" width="360" height="210">
@@ -133,19 +175,21 @@
                             width="360" height="210">
                         <p class="destinations__text">USA</p>
                     </li>
+                    <li class="destinations__item">
+                        <img class="destinations__img" src="assets/img/destinations-spain.jpg" alt="Spain" width="800"
+                            height="800">
+                        <p class="destinations__text">Spain</p>
                 </ul>
                 <ul class="pagination__list">
-                    <li class="pagination__item pagination__item--active">Spain</li>
-                    <li class="pagination__item">Japan</li>
+                    <li class="pagination__item">Spain</li>
+                    <li class="pagination__item pagination__item--active">Japan</li>
                     <li class="pagination__item">USA</li>
                 </ul>
                 <div class="slider-arrows">
                     <span class="slider-arrows-left"></span>
                     <span class="slider-arrows-right"></span>
                 </div>
-                <form class="button-form destinations__button-form" action="#">
-                    <button class="button button--long">Find More</button>
-                </form>
+                <button class="button destinations__button button--long">Find More</button>
             </section>
             <section class="stories" id="stories">
                 <div class="content-container">
@@ -285,9 +329,7 @@
                             </div>
                         </li>
                     </ul>
-                    <form class="button-form" action="#">
-                        <button class="button button--long">See More</button>
-                    </form>
+                    <button class="button button--long">See More</button>
                 </div>
             </section>
         </main>
@@ -319,7 +361,7 @@
             </div>
         </footer>
     </div>
+    <script src="index.js"></script>
 </body>
-<script src="index.js"></script>
 
 </html>
