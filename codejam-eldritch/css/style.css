@@ -28,11 +28,12 @@ code {
     width: 200px
 }
 
-.ancients-container .ancient-card.active {
+.ancients-conxtainer .ancient-card.active {
     border: 2px solid red
 }
 
 .difficulty-container {
+    opacity: 1;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -140,4 +141,8 @@ code {
     height: 100vh;
     justify-content: space-between;
     width: 100vw
+}
+
+.hidden {
+    opacity: 0;
 }
