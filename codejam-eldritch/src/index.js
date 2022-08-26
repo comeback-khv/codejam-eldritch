@@ -1,7 +1,10 @@
 // Импорт
 import './sass/main.scss'
-import cards from './assets/MythicCards/blue/index'
+import cardsGreen from './assets/MythicCards/green/index'
+import cardsBrown from './assets/MythicCards/brown/index'
+import cardsBlue from './assets/MythicCards/blue/index'
 import ancients from './assets/Ancients/index'
+import ancientsData from './data/ancients'
 import homeBackground from './assets/home.png'
 import cardBackground from './assets/mythicCardBackground.png'
 
@@ -24,8 +27,13 @@ const difficulty = document.querySelectorAll('.difficulty');
 // Объявление переменные - Колода
 const deckСontainer = document.querySelector('.deck-container');
 const shuffleButton = document.querySelector('.shuffle-button');
+const currentState = document.querySelectorAll('.current-state');
 const deck = document.querySelector('.deck');
 const body = document.querySelector('.App');
+const lastCard = document.querySelector('.last-card')
+const green = document.querySelectorAll('.green')
+const brown = document.querySelectorAll('.brown')
+const blue = document.querySelectorAll('.blue')
 deck.style.backgroundImage = `url(${cardBackground})`;
 body.style.backgroundImage = `url(${homeBackground})`;
 
@@ -98,9 +106,153 @@ shubNiggurath.addEventListener('click', () => {
     shubNiggurath.classList.add('active');
 })
 
-function azathothStandart() {
-    const fullDeck = [];
-    fullDeck.push('71');
+// Функция создания случайного числа
+function randomNumber(number) {
+    let randomNumber = Math.round(Math.random() * number)
+    return randomNumber
 }
-azathothStandart()
-console.log(ancients.azathoth)
+
+// Создаем массив с 3мя колодами
+let fullCardsGreen = [];
+for (let key in cardsGreen) {
+    fullCardsGreen.push(cardsGreen[key])
+}
+let fullCardsBrown = [];
+for (let key in cardsBrown) {
+    fullCardsBrown.push(cardsBrown[key])
+}
+let fullCardsBlue = [];
+for (let key in cardsBlue) {
+    fullCardsBlue.push(cardsBlue[key])
+}
+let firstStage = [];
+let secondStage = [];
+let thirdStage = [];
+
+// Шафл для Первого демона, все этапы, средняя сложность
+function azathothStandart() {
+    // firstStage
+    for (let i = 0; i < 1; i++) {
+        let rndNum = randomNumber(17 - i);
+        firstStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
+        green[0].textContent = `${ancientsData[0].firstStage.greenCards}`;
+    }
+    for (let i = 0; i < 2; i++) {
+        let rndNum = randomNumber(20 - i);
+        firstStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
+        brown[0].textContent = `${ancientsData[0].firstStage.brownCards}`;
+    }
+    for (let i = 0; i < 1; i++) {
+        let rndNum = randomNumber(11 - i);
+        firstStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
+        blue[0].textContent = `${ancientsData[0].firstStage.blueCards}`;
+    }
+    // secondStage
+    for (let i = 0; i < 2; i++) {
+        let rndNum = randomNumber(16 - i);
+        secondStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
+        green[1].textContent = `${ancientsData[0].secondStage.greenCards}`;
+    }
+    for (let i = 0; i < 3; i++) {
+        let rndNum = randomNumber(18 - i);
+        secondStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
+        brown[1].textContent = `${ancientsData[0].secondStage.brownCards}`;
+    }
+    for (let i = 0; i < 1; i++) {
+        let rndNum = randomNumber(10 - i);
+        secondStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
+        blue[1].textContent = `${ancientsData[0].secondStage.blueCards}`;
+    }
+    // thirdStage
+    for (let i = 0; i < 2; i++) {
+        let rndNum = randomNumber(14 - i);
+        thirdStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
+        green[2].textContent = `${ancientsData[0].thirdStage.greenCards}`;
+    }
+    for (let i = 0; i < 4; i++) {
+        let rndNum = randomNumber(15 - i);
+        thirdStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
+        brown[2].textContent = `${ancientsData[0].thirdStage.brownCards}`;
+    }
+    for (let i = 0; i < 0; i++) {
+        let rndNum = randomNumber(9 - i);
+        thirdStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
+    }
+    blue[2].textContent = `${ancientsData[0].thirdStage.blueCards}`;
+    // Шафлим карты
+    shuffleCards(firstStage);
+    shuffleCards(secondStage);
+    shuffleCards(thirdStage);
+}
+
+
+// Функци показа карты
+function showCard() {
+    if (firstStage.length > 0) {
+        lastCard.style.backgroundImage = `url(${firstStage[0]})`
+        if (firstStage[0].includes('green')) {
+            green[0].textContent = `${green[0].textContent - 1}`
+        }
+        if (firstStage[0].includes('brown')) {
+            brown[0].textContent = `${brown[0].textContent - 1}`
+        }
+        if (firstStage[0].includes('blue')) {
+            blue[0].textContent = `${blue[0].textContent - 1}`
+        }
+        firstStage.splice(0, 1);
+    } else if ((secondStage.length > 0)) {
+        lastCard.style.backgroundImage = `url(${secondStage[0]})`
+        if (secondStage[0].includes('green')) {
+            green[1].textContent = `${green[1].textContent - 1}`
+        }
+        if (secondStage[0].includes('brown')) {
+            brown[1].textContent = `${brown[1].textContent - 1}`
+        }
+        if (secondStage[0].includes('blue')) {
+            blue[1].textContent = `${blue[1].textContent - 1}`
+        }
+        secondStage.splice(0, 1);
+    } else if ((thirdStage.length > 0)) {
+        lastCard.style.backgroundImage = `url(${thirdStage[0]})`
+        if (thirdStage[0].includes('green')) {
+            green[2].textContent = `${green[2].textContent - 1}`
+        }
+        if (thirdStage[0].includes('brown')) {
+            brown[2].textContent = `${brown[2].textContent - 1}`
+        }
+        if (thirdStage[0].includes('blue')) {
+            blue[2].textContent = `${blue[2].textContent - 1}`
+        }
+        thirdStage.splice(0, 1);
+    }
+}
+// Замешиваем при нажатии на Древнего и уровень сложности
+difficulty[1].addEventListener('click', () => {
+    if (azathoth.classList.contains('active')) {
+        azathothStandart()
+    }
+})
+
+// Показать карту
+deck.addEventListener('click', showCard)
+
+// Показать трекер при шафле
+shuffleButton.addEventListener('click', () => {
+    currentState[0].classList.remove('hidden');
+    currentState[1].classList.remove('hidden');
+    currentState[2].classList.remove('hidden');
+})
+
+//Функция шафла карт внутри колоды
+function shuffleCards(arr) {
+    return arr.sort(() => Math.random() - 0.5)
+}
