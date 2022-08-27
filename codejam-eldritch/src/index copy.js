@@ -131,81 +131,62 @@ let secondStage = [];
 let thirdStage = [];
 
 // Шафл для Первого демона, все этапы, средняя сложность
-
 function azathothStandart() {
     // firstStage
     for (let i = 0; i < `${ancientsData[0].firstStage.greenCards}`; i++) {
         let rndNum = randomNumber(17 - i);
-        let fullCardsGreenClone = [];
-        fullCardsGreenClone = fullCardsGreenClone.concat(fullCardsGreen);
-        firstStage.push(fullCardsGreenClone[rndNum]);
-        fullCardsGreenClone.splice(rndNum, 1);
+        firstStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
         green[0].textContent = `${ancientsData[0].firstStage.greenCards}`;
     }
     for (let i = 0; i < `${ancientsData[0].firstStage.brownCards}`; i++) {
         let rndNum = randomNumber(20 - i);
-        let fullCardsBrownClone = [];
-        fullCardsBrownClone = fullCardsBrownClone.concat(fullCardsBrown);
-        firstStage.push(fullCardsBrownClone[rndNum]);
-        fullCardsBrownClone.splice(rndNum, 1);
+        firstStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
         brown[0].textContent = `${ancientsData[0].firstStage.brownCards}`;
     }
     for (let i = 0; i < `${ancientsData[0].firstStage.blueCards}`; i++) {
         let rndNum = randomNumber(11 - i);
-        let fullCardsBlueClone = [];
-        fullCardsBlueClone = fullCardsBlueClone.concat(fullCardsBlue);
-        firstStage.push(fullCardsBlueClone[rndNum]);
-        fullCardsBlueClone.splice(rndNum, 1);
+        firstStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
         blue[0].textContent = `${ancientsData[0].firstStage.blueCards}`;
     }
     // secondStage
     for (let i = 0; i < `${ancientsData[0].secondStage.greenCards}`; i++) {
         let rndNum = randomNumber(16 - i);
-        let fullCardsGreenClone = [];
-        fullCardsGreenClone = fullCardsGreenClone.concat(fullCardsGreen);
-        secondStage.push(fullCardsGreenClone[rndNum]);
-        fullCardsGreenClone.splice(rndNum, 1);
+        secondStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
         green[1].textContent = `${ancientsData[0].secondStage.greenCards}`;
     }
     for (let i = 0; i < `${ancientsData[0].secondStage.brownCards}`; i++) {
         let rndNum = randomNumber(18 - i);
-        let fullCardsBrownClone = [];
-        fullCardsBrownClone = fullCardsBrownClone.concat(fullCardsBrown);
-        secondStage.push(fullCardsBrownClone[rndNum]);
-        fullCardsBrownClone.splice(rndNum, 1);
+        secondStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
         brown[1].textContent = `${ancientsData[0].secondStage.brownCards}`;
     }
     for (let i = 0; i < `${ancientsData[0].secondStage.blueCards}`; i++) {
         let rndNum = randomNumber(10 - i);
-        let fullCardsBlueClone = [];
-        fullCardsBlueClone = fullCardsBlueClone.concat(fullCardsBlue);
-        secondStage.push(fullCardsBlueClone[rndNum]);
-        fullCardsBlueClone.splice(rndNum, 1);
+        secondStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
         blue[1].textContent = `${ancientsData[0].secondStage.blueCards}`;
     }
     // thirdStage
     for (let i = 0; i < `${ancientsData[0].thirdStage.greenCards}`; i++) {
         let rndNum = randomNumber(14 - i);
-        let fullCardsGreenClone = [];
-        fullCardsGreenClone = fullCardsGreenClone.concat(fullCardsGreen);
-        thirdStage.push(fullCardsGreenClone[rndNum]);
-        fullCardsGreenClone.splice(rndNum, 1);
+        thirdStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
         green[2].textContent = `${ancientsData[0].thirdStage.greenCards}`;
     }
     for (let i = 0; i < `${ancientsData[0].thirdStage.brownCards}`; i++) {
         let rndNum = randomNumber(15 - i);
-        let fullCardsBrownClone = [];
-        fullCardsBrownClone = fullCardsBrownClone.concat(fullCardsBrown);
-        thirdStage.push(fullCardsBrownClone[rndNum]);
-        fullCardsBrownClone.splice(rndNum, 1);
+        thirdStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
         brown[2].textContent = `${ancientsData[0].thirdStage.brownCards}`;
     }
     for (let i = 0; i < `${ancientsData[0].thirdStage.blueCards}`; i++) {
         let rndNum = randomNumber(9 - i);
-        let fullCardsBlueClone = [];
-        fullCardsBlueClone = fullCardsBlueClone.concat(fullCardsBlue);
-        thirdStage.push(fullCardsBlueClone[rndNum]);
-        fullCardsBlueClone.splice(rndNum, 1);
+        thirdStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
     }
     blue[2].textContent = `${ancientsData[0].thirdStage.blueCards}`;
     // Шафлим карты
@@ -228,7 +209,6 @@ function showCard() {
             blue[0].textContent = `${blue[0].textContent - 1}`
         }
         firstStage.splice(0, 1);
-        console.log(firstStage)
     } else if ((secondStage.length > 0)) {
         lastCard.style.backgroundImage = `url(${secondStage[0]})`
         if (secondStage[0].includes('green')) {
@@ -241,7 +221,6 @@ function showCard() {
             blue[1].textContent = `${blue[1].textContent - 1}`
         }
         secondStage.splice(0, 1);
-        console.log(secondStage)
     } else if ((thirdStage.length > 0)) {
         lastCard.style.backgroundImage = `url(${thirdStage[0]})`
         if (thirdStage[0].includes('green')) {
@@ -254,27 +233,23 @@ function showCard() {
             blue[2].textContent = `${blue[2].textContent - 1}`
         }
         thirdStage.splice(0, 1);
-        console.log(thirdStage)
     }
 }
 // Замешиваем при нажатии на Древнего и уровень сложности
 shuffleButton.addEventListener('click', () => {
     if (azathoth.classList.contains('active')) {
-        resetStage()
         azathothStandart()
     }
     if (cthulthu.classList.contains('active')) {
-        resetStage()
         cthulthuStandart()
     }
     if (iogSothoth.classList.contains('active')) {
-        resetStage()
         iogSothothStandart()
     }
     if (shubNiggurath.classList.contains('active')) {
-        resetStage()
         shubNiggurathStandart()
     }
+
 })
 
 // Показать карту
@@ -297,76 +272,58 @@ function cthulthuStandart() {
     // firstStage
     for (let i = 0; i < `${ancientsData[1].firstStage.greenCards}`; i++) {
         let rndNum = randomNumber(17 - i);
-        let fullCardsGreenClone = [];
-        fullCardsGreenClone = fullCardsGreenClone.concat(fullCardsGreen);
-        firstStage.push(fullCardsGreenClone[rndNum]);
-        fullCardsGreenClone.splice(rndNum, 1);
+        firstStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
         green[0].textContent = `${ancientsData[1].firstStage.greenCards}`;
     }
     for (let i = 0; i < `${ancientsData[1].firstStage.brownCards}`; i++) {
         let rndNum = randomNumber(20 - i);
-        let fullCardsBrownClone = [];
-        fullCardsBrownClone = fullCardsBrownClone.concat(fullCardsBrown);
-        firstStage.push(fullCardsBrownClone[rndNum]);
-        fullCardsBrownClone.splice(rndNum, 1);
+        firstStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
         brown[0].textContent = `${ancientsData[1].firstStage.brownCards}`;
     }
     for (let i = 0; i < `${ancientsData[1].firstStage.blueCards}`; i++) {
         let rndNum = randomNumber(11 - i);
-        let fullCardsBlueClone = [];
-        fullCardsBlueClone = fullCardsBlueClone.concat(fullCardsBlue);
-        firstStage.push(fullCardsBlueClone[rndNum]);
-        fullCardsBlueClone.splice(rndNum, 1);
+        firstStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
         blue[0].textContent = `${ancientsData[1].firstStage.blueCards}`;
     }
     // secondStage
     for (let i = 0; i < `${ancientsData[1].secondStage.greenCards}`; i++) {
         let rndNum = randomNumber(16 - i);
-        let fullCardsGreenClone = [];
-        fullCardsGreenClone = fullCardsGreenClone.concat(fullCardsGreen);
-        secondStage.push(fullCardsGreenClone[rndNum]);
-        fullCardsGreenClone.splice(rndNum, 1);
+        secondStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
         green[1].textContent = `${ancientsData[1].secondStage.greenCards}`;
     }
     for (let i = 0; i < `${ancientsData[1].secondStage.brownCards}`; i++) {
         let rndNum = randomNumber(18 - i);
-        let fullCardsBrownClone = [];
-        fullCardsBrownClone = fullCardsBrownClone.concat(fullCardsBrown);
-        secondStage.push(fullCardsBrownClone[rndNum]);
-        fullCardsBrownClone.splice(rndNum, 1);
+        secondStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
         brown[1].textContent = `${ancientsData[1].secondStage.brownCards}`;
     }
     for (let i = 0; i < `${ancientsData[1].secondStage.blueCards}`; i++) {
         let rndNum = randomNumber(10 - i);
-        let fullCardsBlueClone = [];
-        fullCardsBlueClone = fullCardsBlueClone.concat(fullCardsBlue);
-        secondStage.push(fullCardsBlueClone[rndNum]);
-        fullCardsBlueClone.splice(rndNum, 1);
+        secondStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
         blue[1].textContent = `${ancientsData[1].secondStage.blueCards}`;
     }
     // thirdStage
     for (let i = 0; i < `${ancientsData[1].thirdStage.greenCards}`; i++) {
         let rndNum = randomNumber(14 - i);
-        let fullCardsGreenClone = [];
-        fullCardsGreenClone = fullCardsGreenClone.concat(fullCardsGreen);
-        thirdStage.push(fullCardsGreenClone[rndNum]);
-        fullCardsGreenClone.splice(rndNum, 1);
+        thirdStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
         green[2].textContent = `${ancientsData[1].thirdStage.greenCards}`;
     }
     for (let i = 0; i < `${ancientsData[1].thirdStage.brownCards}`; i++) {
         let rndNum = randomNumber(15 - i);
-        let fullCardsBrownClone = [];
-        fullCardsBrownClone = fullCardsBrownClone.concat(fullCardsBrown);
-        thirdStage.push(fullCardsBrownClone[rndNum]);
-        fullCardsBrownClone.splice(rndNum, 1);
+        thirdStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
         brown[2].textContent = `${ancientsData[1].thirdStage.brownCards}`;
     }
     for (let i = 0; i < `${ancientsData[1].thirdStage.blueCards}`; i++) {
         let rndNum = randomNumber(9 - i);
-        let fullCardsBlueClone = [];
-        fullCardsBlueClone = fullCardsBlueClone.concat(fullCardsBlue);
-        thirdStage.push(fullCardsBlueClone[rndNum]);
-        fullCardsBlueClone.splice(rndNum, 1);
+        thirdStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
     }
     green[0].textContent = `${ancientsData[1].thirdStage.blueCards}`;
     blue[1].textContent = `${ancientsData[1].thirdStage.blueCards}`;
@@ -382,76 +339,58 @@ function iogSothothStandart() {
     // firstStage
     for (let i = 0; i < `${ancientsData[2].firstStage.greenCards}`; i++) {
         let rndNum = randomNumber(17 - i);
-        let fullCardsGreenClone = [];
-        fullCardsGreenClone = fullCardsGreenClone.concat(fullCardsGreen);
-        firstStage.push(fullCardsGreenClone[rndNum]);
-        fullCardsGreenClone.splice(rndNum, 1);
+        firstStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
         green[0].textContent = `${ancientsData[2].firstStage.greenCards}`;
     }
     for (let i = 0; i < `${ancientsData[2].firstStage.brownCards}`; i++) {
         let rndNum = randomNumber(20 - i);
-        let fullCardsBrownClone = [];
-        fullCardsBrownClone = fullCardsBrownClone.concat(fullCardsBrown);
-        firstStage.push(fullCardsBrownClone[rndNum]);
-        fullCardsBrownClone.splice(rndNum, 1);
+        firstStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
         brown[0].textContent = `${ancientsData[2].firstStage.brownCards}`;
     }
     for (let i = 0; i < `${ancientsData[2].firstStage.blueCards}`; i++) {
         let rndNum = randomNumber(11 - i);
-        let fullCardsBlueClone = [];
-        fullCardsBlueClone = fullCardsBlueClone.concat(fullCardsBlue);
-        firstStage.push(fullCardsBlueClone[rndNum]);
-        fullCardsBlueClone.splice(rndNum, 1);
+        firstStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
         blue[0].textContent = `${ancientsData[2].firstStage.blueCards}`;
     }
     // secondStage
     for (let i = 0; i < `${ancientsData[2].secondStage.greenCards}`; i++) {
         let rndNum = randomNumber(16 - i);
-        let fullCardsGreenClone = [];
-        fullCardsGreenClone = fullCardsGreenClone.concat(fullCardsGreen);
-        secondStage.push(fullCardsGreenClone[rndNum]);
-        fullCardsGreenClone.splice(rndNum, 1);
+        secondStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
         green[1].textContent = `${ancientsData[2].secondStage.greenCards}`;
     }
     for (let i = 0; i < `${ancientsData[2].secondStage.brownCards}`; i++) {
         let rndNum = randomNumber(18 - i);
-        let fullCardsBrownClone = [];
-        fullCardsBrownClone = fullCardsBrownClone.concat(fullCardsBrown);
-        secondStage.push(fullCardsBrownClone[rndNum]);
-        fullCardsBrownClone.splice(rndNum, 1);
+        secondStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
         brown[1].textContent = `${ancientsData[2].secondStage.brownCards}`;
     }
     for (let i = 0; i < `${ancientsData[2].secondStage.blueCards}`; i++) {
         let rndNum = randomNumber(10 - i);
-        let fullCardsBlueClone = [];
-        fullCardsBlueClone = fullCardsBlueClone.concat(fullCardsBlue);
-        secondStage.push(fullCardsBlueClone[rndNum]);
-        fullCardsBlueClone.splice(rndNum, 1);
+        secondStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
         blue[1].textContent = `${ancientsData[2].secondStage.blueCards}`;
     }
     // thirdStage
     for (let i = 0; i < `${ancientsData[2].thirdStage.greenCards}`; i++) {
         let rndNum = randomNumber(14 - i);
-        let fullCardsGreenClone = [];
-        fullCardsGreenClone = fullCardsGreenClone.concat(fullCardsGreen);
-        thirdStage.push(fullCardsGreenClone[rndNum]);
-        fullCardsGreenClone.splice(rndNum, 1);
+        thirdStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
         green[2].textContent = `${ancientsData[2].thirdStage.greenCards}`;
     }
     for (let i = 0; i < `${ancientsData[2].thirdStage.brownCards}`; i++) {
         let rndNum = randomNumber(15 - i);
-        let fullCardsBrownClone = [];
-        fullCardsBrownClone = fullCardsBrownClone.concat(fullCardsBrown);
-        thirdStage.push(fullCardsBrownClone[rndNum]);
-        fullCardsBrownClone.splice(rndNum, 1);
+        thirdStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
         brown[2].textContent = `${ancientsData[2].thirdStage.brownCards}`;
     }
     for (let i = 0; i < `${ancientsData[2].thirdStage.blueCards}`; i++) {
         let rndNum = randomNumber(9 - i);
-        let fullCardsBlueClone = [];
-        fullCardsBlueClone = fullCardsBlueClone.concat(fullCardsBlue);
-        thirdStage.push(fullCardsBlueClone[rndNum]);
-        fullCardsBlueClone.splice(rndNum, 1);
+        thirdStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
     }
     green[0].textContent = `${ancientsData[2].thirdStage.blueCards}`;
     blue[2].textContent = `${ancientsData[2].thirdStage.blueCards}`;
@@ -466,76 +405,58 @@ function shubNiggurathStandart() {
     // firstStage
     for (let i = 0; i < `${ancientsData[3].firstStage.greenCards}`; i++) {
         let rndNum = randomNumber(17 - i);
-        let fullCardsGreenClone = [];
-        fullCardsGreenClone = fullCardsGreenClone.concat(fullCardsGreen);
-        firstStage.push(fullCardsGreenClone[rndNum]);
-        fullCardsGreenClone.splice(rndNum, 1);
+        firstStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
         green[0].textContent = `${ancientsData[3].firstStage.greenCards}`;
     }
     for (let i = 0; i < `${ancientsData[3].firstStage.brownCards}`; i++) {
         let rndNum = randomNumber(20 - i);
-        let fullCardsBrownClone = [];
-        fullCardsBrownClone = fullCardsBrownClone.concat(fullCardsBrown);
-        firstStage.push(fullCardsBrownClone[rndNum]);
-        fullCardsBrownClone.splice(rndNum, 1);
+        firstStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
         brown[0].textContent = `${ancientsData[3].firstStage.brownCards}`;
     }
     for (let i = 0; i < `${ancientsData[3].firstStage.blueCards}`; i++) {
         let rndNum = randomNumber(11 - i);
-        let fullCardsBlueClone = [];
-        fullCardsBlueClone = fullCardsBlueClone.concat(fullCardsBlue);
-        firstStage.push(fullCardsBlueClone[rndNum]);
-        fullCardsBlueClone.splice(rndNum, 1);
+        firstStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
         blue[0].textContent = `${ancientsData[3].firstStage.blueCards}`;
     }
     // secondStage
     for (let i = 0; i < `${ancientsData[3].secondStage.greenCards}`; i++) {
         let rndNum = randomNumber(16 - i);
-        let fullCardsGreenClone = [];
-        fullCardsGreenClone = fullCardsGreenClone.concat(fullCardsGreen);
-        secondStage.push(fullCardsGreenClone[rndNum]);
-        fullCardsGreenClone.splice(rndNum, 1);
+        secondStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
         green[1].textContent = `${ancientsData[3].secondStage.greenCards}`;
     }
     for (let i = 0; i < `${ancientsData[3].secondStage.brownCards}`; i++) {
         let rndNum = randomNumber(18 - i);
-        let fullCardsBrownClone = [];
-        fullCardsBrownClone = fullCardsBrownClone.concat(fullCardsBrown);
-        secondStage.push(fullCardsBrownClone[rndNum]);
-        fullCardsBrownClone.splice(rndNum, 1);
+        secondStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
         brown[1].textContent = `${ancientsData[3].secondStage.brownCards}`;
     }
     for (let i = 0; i < `${ancientsData[3].secondStage.blueCards}`; i++) {
         let rndNum = randomNumber(10 - i);
-        let fullCardsBlueClone = [];
-        fullCardsBlueClone = fullCardsBlueClone.concat(fullCardsBlue);
-        secondStage.push(fullCardsBlueClone[rndNum]);
-        fullCardsBlueClone.splice(rndNum, 1);
+        secondStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
         blue[1].textContent = `${ancientsData[3].secondStage.blueCards}`;
     }
     // thirdStage
     for (let i = 0; i < `${ancientsData[3].thirdStage.greenCards}`; i++) {
         let rndNum = randomNumber(14 - i);
-        let fullCardsGreenClone = [];
-        fullCardsGreenClone = fullCardsGreenClone.concat(fullCardsGreen);
-        thirdStage.push(fullCardsGreenClone[rndNum]);
-        fullCardsGreenClone.splice(rndNum, 1);
+        thirdStage.push(fullCardsGreen[rndNum]);
+        fullCardsGreen.splice(rndNum, 1);
         green[2].textContent = `${ancientsData[3].thirdStage.greenCards}`;
     }
     for (let i = 0; i < `${ancientsData[3].thirdStage.brownCards}`; i++) {
         let rndNum = randomNumber(15 - i);
-        let fullCardsBrownClone = [];
-        fullCardsBrownClone = fullCardsBrownClone.concat(fullCardsBrown);
-        thirdStage.push(fullCardsBrownClone[rndNum]);
-        fullCardsBrownClone.splice(rndNum, 1);
+        thirdStage.push(fullCardsBrown[rndNum]);
+        fullCardsBrown.splice(rndNum, 1);
         brown[2].textContent = `${ancientsData[3].thirdStage.brownCards}`;
     }
     for (let i = 0; i < `${ancientsData[3].thirdStage.blueCards}`; i++) {
         let rndNum = randomNumber(9 - i);
-        let fullCardsBlueClone = [];
-        fullCardsBlueClone = fullCardsBlueClone.concat(fullCardsBlue);
-        thirdStage.push(fullCardsBlueClone[rndNum]);
-        fullCardsBlueClone.splice(rndNum, 1);
+        thirdStage.push(fullCardsBlue[rndNum]);
+        fullCardsBlue.splice(rndNum, 1);
     }
     blue[2].textContent = `${ancientsData[3].thirdStage.blueCards}`;
     // Шафлим карты
@@ -576,11 +497,4 @@ shubNiggurath.addEventListener('click', () => {
     currentState[2].classList.add('hidden')
     lastCard.classList.add('hidden')
     shuffleButton.classList.remove('hidden')
-})
-
-//
-function resetStage() {
-    firstStage = [];
-    secondStage = [];
-    thirdStage = [];
-}
+}) 
