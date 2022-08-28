@@ -28,7 +28,6 @@ const difficulty = document.querySelectorAll('.difficulty');
 const deckСontainer = document.querySelector('.deck-container');
 const shuffleButton = document.querySelector('.shuffle-button');
 const currentState = document.querySelectorAll('.current-state');
-const stageText = document.querySelectorAll('.stage-text')
 const deck = document.querySelector('.deck');
 const body = document.querySelector('.App');
 const lastCard = document.querySelector('.last-card')
@@ -57,12 +56,6 @@ difficulty[0].addEventListener('click', () => {
     deckСontainer.classList.remove('hidden');
     shuffleButton.classList.remove('hidden');
     deck.classList.add('hidden');
-    currentState[0].classList.add('hidden');
-    currentState[1].classList.add('hidden');
-    currentState[2].classList.add('hidden');
-    stageText[0].classList.remove('done')
-    stageText[1].classList.remove('done')
-    stageText[2].classList.remove('done')
 })
 difficulty[1].addEventListener('click', () => {
     difficulty[1].classList.add('active');
@@ -71,12 +64,6 @@ difficulty[1].addEventListener('click', () => {
     deckСontainer.classList.remove('hidden');
     shuffleButton.classList.remove('hidden');
     deck.classList.add('hidden');
-    currentState[0].classList.add('hidden');
-    currentState[1].classList.add('hidden');
-    currentState[2].classList.add('hidden');
-    stageText[0].classList.remove('done')
-    stageText[1].classList.remove('done')
-    stageText[2].classList.remove('done')
 })
 difficulty[2].addEventListener('click', () => {
     difficulty[2].classList.add('active');
@@ -85,12 +72,6 @@ difficulty[2].addEventListener('click', () => {
     deckСontainer.classList.remove('hidden');
     shuffleButton.classList.remove('hidden');
     deck.classList.add('hidden');
-    currentState[0].classList.add('hidden');
-    currentState[1].classList.add('hidden');
-    currentState[2].classList.add('hidden');
-    stageText[0].classList.remove('done')
-    stageText[1].classList.remove('done')
-    stageText[2].classList.remove('done')
 })
 
 // Спрятать кнопку 'Замешать колоду'
@@ -183,82 +164,28 @@ function showCard() {
         thirdStage.splice(0, 1);
         console.log(thirdStage)
     }
-    if (firstStage.length === 0) {
-        stageText[0].classList.add('done')
-    }
-    if (secondStage.length === 0) {
-        stageText[1].classList.add('done')
-    }
-    if (thirdStage.length === 0) {
-        stageText[2].classList.add('done')
-    }
-
 }
 // Замешиваем при нажатии на Древнего и уровень сложности
 shuffleButton.addEventListener('click', () => {
-    // Первый древний 3 сложности
-    if ((azathoth.classList.contains('active') & difficulty[0].classList.contains('active'))) {
+    if (azathoth.classList.contains('active')) {
         resetStage()
         resetDataClone()
-        pickAncient(0, 'easy')
+        pickAncient(0)
     }
-    if ((azathoth.classList.contains('active') & difficulty[1].classList.contains('active'))) {
+    if (cthulthu.classList.contains('active')) {
         resetStage()
         resetDataClone()
-        pickAncient(0, 'normal')
+        pickAncient(1)
     }
-    if ((azathoth.classList.contains('active') & difficulty[2].classList.contains('active'))) {
+    if (iogSothoth.classList.contains('active')) {
         resetStage()
         resetDataClone()
-        pickAncient(0, 'hard')
+        pickAncient(2)
     }
-    // Второй древний 3 сложности
-    if ((cthulthu.classList.contains('active') & difficulty[0].classList.contains('active'))) {
+    if (shubNiggurath.classList.contains('active')) {
         resetStage()
         resetDataClone()
-        pickAncient(1, 'easy')
-    }
-    if ((cthulthu.classList.contains('active') & difficulty[1].classList.contains('active'))) {
-        resetStage()
-        resetDataClone()
-        pickAncient(1, 'normal')
-    }
-    if ((cthulthu.classList.contains('active') & difficulty[2].classList.contains('active'))) {
-        resetStage()
-        resetDataClone()
-        pickAncient(1, 'hard')
-    }
-    // Третий древний 3 сложности
-    if ((iogSothoth.classList.contains('active') & difficulty[0].classList.contains('active'))) {
-        resetStage()
-        resetDataClone()
-        pickAncient(2, 'easy')
-    }
-    if ((iogSothoth.classList.contains('active') & difficulty[1].classList.contains('active'))) {
-        resetStage()
-        resetDataClone()
-        pickAncient(2, 'normal')
-    }
-    if ((iogSothoth.classList.contains('active') & difficulty[2].classList.contains('active'))) {
-        resetStage()
-        resetDataClone()
-        pickAncient(2, 'hard')
-    }
-    // Четвертый древний 3 сложности
-    if ((shubNiggurath.classList.contains('active') & difficulty[0].classList.contains('active'))) {
-        resetStage()
-        resetDataClone()
-        pickAncient(3, 'easy')
-    }
-    if ((shubNiggurath.classList.contains('active') & difficulty[1].classList.contains('active'))) {
-        resetStage()
-        resetDataClone()
-        pickAncient(3, 'normal')
-    }
-    if ((shubNiggurath.classList.contains('active') & difficulty[2].classList.contains('active'))) {
-        resetStage()
-        resetDataClone()
-        pickAncient(3, 'hard')
+        pickAncient(3)
     }
 })
 
@@ -285,9 +212,6 @@ azathoth.addEventListener('click', () => {
     currentState[2].classList.add('hidden')
     lastCard.classList.add('hidden')
     shuffleButton.classList.remove('hidden')
-    stageText[0].classList.remove('done')
-    stageText[1].classList.remove('done')
-    stageText[2].classList.remove('done')
 })
 cthulthu.addEventListener('click', () => {
     deck.classList.add('hidden')
@@ -296,9 +220,6 @@ cthulthu.addEventListener('click', () => {
     currentState[2].classList.add('hidden')
     lastCard.classList.add('hidden')
     shuffleButton.classList.remove('hidden')
-    stageText[0].classList.remove('done')
-    stageText[1].classList.remove('done')
-    stageText[2].classList.remove('done')
 })
 iogSothoth.addEventListener('click', () => {
     deck.classList.add('hidden')
@@ -307,9 +228,6 @@ iogSothoth.addEventListener('click', () => {
     currentState[2].classList.add('hidden')
     lastCard.classList.add('hidden')
     shuffleButton.classList.remove('hidden')
-    stageText[0].classList.remove('done')
-    stageText[1].classList.remove('done')
-    stageText[2].classList.remove('done')
 })
 shubNiggurath.addEventListener('click', () => {
     deck.classList.add('hidden')
@@ -318,9 +236,6 @@ shubNiggurath.addEventListener('click', () => {
     currentState[2].classList.add('hidden')
     lastCard.classList.add('hidden')
     shuffleButton.classList.remove('hidden')
-    stageText[0].classList.remove('done')
-    stageText[1].classList.remove('done')
-    stageText[2].classList.remove('done')
 })
 
 // Функция сброса раунда
@@ -336,121 +251,67 @@ function resetDataClone() {
     brownCardDataClone = [];
     blueCardDataClone = [];
 }
-let rndNum = 0
+
 // Функция для древнего
-function pickAncient(heroNumber, difficulty) {
-    // Легкая сложность
-    if (difficulty === 'easy') {
-        for (let j = 0; j < greenCardData.length - 1; j++) {
-            if (greenCardData[j].difficulty === 'easy' | greenCardData[j].difficulty === 'normal') {
-                greenCardDataClone.push(greenCardData[j])
-            }
-        }
-    }
-    if (difficulty === 'easy') {
-        for (let j = 0; j < brownCardData.length - 1; j++) {
-            if (brownCardData[j].difficulty === 'easy' | brownCardData[j].difficulty === 'normal') {
-                brownCardDataClone.push(brownCardData[j])
-            }
-        }
-    }
-    if (difficulty === 'easy') {
-        for (let j = 0; j < blueCardData.length - 1; j++) {
-            if (blueCardData[j].difficulty === 'easy' | blueCardData[j].difficulty === 'normal') {
-                blueCardDataClone.push(blueCardData[j])
-            }
-        }
-    }
-    // Средняя сложность
-    if (difficulty === 'normal') {
-        for (let j = 0; j < greenCardData.length - 1; j++) {
-            greenCardDataClone.push(greenCardData[j])
-        }
-    }
-    if (difficulty === 'normal') {
-        for (let j = 0; j < brownCardData.length - 1; j++) {
-            brownCardDataClone.push(brownCardData[j])
-        }
-    }
-    if (difficulty === 'normal') {
-        for (let j = 0; j < blueCardData.length - 1; j++) {
-            blueCardDataClone.push(blueCardData[j])
-        }
-    }
-    // Тяжелая сложность
-    if (difficulty === 'hard') {
-        for (let j = 0; j < greenCardData.length - 1; j++) {
-            if (greenCardData[j].difficulty === 'hard' | greenCardData[j].difficulty === 'normal') {
-                greenCardDataClone.push(greenCardData[j])
-            }
-        }
-    }
-    if (difficulty === 'hard') {
-        for (let j = 0; j < brownCardData.length - 1; j++) {
-            if (brownCardData[j].difficulty === 'hard' | brownCardData[j].difficulty === 'normal') {
-                brownCardDataClone.push(brownCardData[j])
-            }
-        }
-    }
-    if (difficulty === 'hard') {
-        for (let j = 0; j < blueCardData.length - 1; j++) {
-            if (blueCardData[j].difficulty === 'hard' | blueCardData[j].difficulty === 'normal') {
-                blueCardDataClone.push(blueCardData[j])
-            }
-        }
-    }
-    // firstStage 
+function pickAncient(heroNumber) {
+    // firstStage
     for (let i = 0; i < `${ancientsData[heroNumber].firstStage.greenCards}`; i++) {
-        rndNum = randomNumber(greenCardDataClone.length - 1 - i);
+        let rndNum = randomNumber(17 - i);
+        greenCardDataClone = greenCardDataClone.concat(greenCardData);
         firstStage.push(greenCardDataClone[rndNum]);
         greenCardDataClone.splice(rndNum, 1);
     }
     for (let i = 0; i < `${ancientsData[heroNumber].firstStage.brownCards}`; i++) {
-        rndNum = randomNumber(brownCardDataClone.length - 1 - i);
+        let rndNum = randomNumber(20 - i);
+        brownCardDataClone = brownCardDataClone.concat(brownCardData);
         firstStage.push(brownCardDataClone[rndNum]);
         brownCardDataClone.splice(rndNum, 1);
     }
     for (let i = 0; i < `${ancientsData[heroNumber].firstStage.blueCards}`; i++) {
-        rndNum = randomNumber(blueCardDataClone.length - 1 - i);
+        let rndNum = randomNumber(11 - i);
+        blueCardDataClone = blueCardDataClone.concat(blueCardData);
         firstStage.push(blueCardDataClone[rndNum]);
         blueCardDataClone.splice(rndNum, 1);
     }
     // secondStage
     for (let i = 0; i < `${ancientsData[heroNumber].secondStage.greenCards}`; i++) {
-        rndNum = randomNumber(greenCardDataClone.length - 1 - ancientsData[heroNumber].firstStage.greenCards - i);
+        let rndNum = randomNumber(16 - i);
+        greenCardDataClone = greenCardDataClone.concat(greenCardData);
         secondStage.push(greenCardDataClone[rndNum]);
         greenCardDataClone.splice(rndNum, 1);
     }
     for (let i = 0; i < `${ancientsData[heroNumber].secondStage.brownCards}`; i++) {
-        rndNum = randomNumber(brownCardDataClone.length - 1 - ancientsData[heroNumber].firstStage.brownCards - i);
+        let rndNum = randomNumber(18 - i);
+        brownCardDataClone = brownCardDataClone.concat(brownCardData);
         secondStage.push(brownCardDataClone[rndNum]);
         brownCardDataClone.splice(rndNum, 1);
     }
     for (let i = 0; i < `${ancientsData[heroNumber].secondStage.blueCards}`; i++) {
-        rndNum = randomNumber(blueCardDataClone.length - 1 - ancientsData[heroNumber].firstStage.blueCards - i);
+        let rndNum = randomNumber(10 - i);
+        blueCardDataClone = blueCardDataClone.concat(blueCardData);
         secondStage.push(blueCardDataClone[rndNum]);
         blueCardDataClone.splice(rndNum, 1);
     }
     // thirdStage
     for (let i = 0; i < `${ancientsData[heroNumber].thirdStage.greenCards
-        } `; i++) {
-        rndNum = randomNumber(greenCardDataClone.length - 1 - ancientsData[heroNumber].secondStage.greenCards - i);
+} `; i++) {
+        let rndNum = randomNumber(14 - i);
+        greenCardDataClone = greenCardDataClone.concat(greenCardData);
         thirdStage.push(greenCardDataClone[rndNum]);
         greenCardDataClone.splice(rndNum, 1);
     }
-    for (let i = 0; i < `${ancientsData[heroNumber].thirdStage.brownCards} `; i++) {
-        rndNum = randomNumber(brownCardDataClone.length - 1 - ancientsData[heroNumber].secondStage.brownCards - i);
+    for (let i = 0; i < `${ ancientsData[heroNumber].thirdStage.brownCards } `; i++) {
+        let rndNum = randomNumber(15 - i);
+        brownCardDataClone = brownCardDataClone.concat(brownCardData);
         thirdStage.push(brownCardDataClone[rndNum]);
         brownCardDataClone.splice(rndNum, 1);
     }
-    for (let i = 0; i < `${ancientsData[heroNumber].thirdStage.blueCards} `; i++) {
-        rndNum = randomNumber(blueCardDataClone.length - 1 - ancientsData[heroNumber].secondStage.blueCards - i);
+    for (let i = 0; i < `${ ancientsData[heroNumber].thirdStage.blueCards } `; i++) {
+        let rndNum = randomNumber(9 - i);
+        blueCardDataClone = blueCardDataClone.concat(blueCardData);
         thirdStage.push(blueCardDataClone[rndNum]);
         blueCardDataClone.splice(rndNum, 1);
     }
-    console.log(firstStage)
-    console.log(secondStage)
-    console.log(thirdStage)
     green[0].textContent = `${ancientsData[heroNumber].firstStage.greenCards}`;
     brown[0].textContent = `${ancientsData[heroNumber].firstStage.brownCards}`;
     blue[0].textContent = `${ancientsData[heroNumber].firstStage.blueCards}`;
