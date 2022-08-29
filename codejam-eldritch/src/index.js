@@ -6,7 +6,7 @@ import blueCardData from './data/mythicCards/blue/index'
 import ancients from './assets/Ancients/index'
 import ancientsData from './data/ancients'
 import homeBackground from './assets/home.png'
-import cardBackground from './assets/mythicCardBackground.png'
+import cardBackground from './assets/mythicCardBackground.jpeg'
 
 // Объявление переменных - Древние
 const azathoth = document.querySelector('#Azathoth');
@@ -337,6 +337,7 @@ function resetDataClone() {
     blueCardDataClone = [];
 }
 let rndNum = 0
+
 // Функция для древнего
 function pickAncient(heroNumber, difficulty) {
     // Легкая сложность
@@ -346,15 +347,11 @@ function pickAncient(heroNumber, difficulty) {
                 greenCardDataClone.push(greenCardData[j])
             }
         }
-    }
-    if (difficulty === 'easy') {
         for (let j = 0; j < brownCardData.length - 1; j++) {
             if (brownCardData[j].difficulty === 'easy' | brownCardData[j].difficulty === 'normal') {
                 brownCardDataClone.push(brownCardData[j])
             }
         }
-    }
-    if (difficulty === 'easy') {
         for (let j = 0; j < blueCardData.length - 1; j++) {
             if (blueCardData[j].difficulty === 'easy' | blueCardData[j].difficulty === 'normal') {
                 blueCardDataClone.push(blueCardData[j])
@@ -366,13 +363,9 @@ function pickAncient(heroNumber, difficulty) {
         for (let j = 0; j < greenCardData.length - 1; j++) {
             greenCardDataClone.push(greenCardData[j])
         }
-    }
-    if (difficulty === 'normal') {
         for (let j = 0; j < brownCardData.length - 1; j++) {
             brownCardDataClone.push(brownCardData[j])
         }
-    }
-    if (difficulty === 'normal') {
         for (let j = 0; j < blueCardData.length - 1; j++) {
             blueCardDataClone.push(blueCardData[j])
         }
@@ -384,15 +377,11 @@ function pickAncient(heroNumber, difficulty) {
                 greenCardDataClone.push(greenCardData[j])
             }
         }
-    }
-    if (difficulty === 'hard') {
         for (let j = 0; j < brownCardData.length - 1; j++) {
             if (brownCardData[j].difficulty === 'hard' | brownCardData[j].difficulty === 'normal') {
                 brownCardDataClone.push(brownCardData[j])
             }
         }
-    }
-    if (difficulty === 'hard') {
         for (let j = 0; j < blueCardData.length - 1; j++) {
             if (blueCardData[j].difficulty === 'hard' | blueCardData[j].difficulty === 'normal') {
                 blueCardDataClone.push(blueCardData[j])
@@ -448,9 +437,9 @@ function pickAncient(heroNumber, difficulty) {
         thirdStage.push(blueCardDataClone[rndNum]);
         blueCardDataClone.splice(rndNum, 1);
     }
-    console.log(firstStage)
-    console.log(secondStage)
-    console.log(thirdStage)
+   // console.log(firstStage)
+   // console.log(secondStage)
+   // console.log(thirdStage)
     green[0].textContent = `${ancientsData[heroNumber].firstStage.greenCards}`;
     brown[0].textContent = `${ancientsData[heroNumber].firstStage.brownCards}`;
     blue[0].textContent = `${ancientsData[heroNumber].firstStage.blueCards}`;
